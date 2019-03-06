@@ -41,7 +41,7 @@ if __name__ == '__main__':
                 random.randint(prefix_from, prefix_to)
             )
         else:
-        	# We generate an integer with 128 random bits and create address from them.
+            # We generate an integer with 128 random bits and create address from them.
             # When we call str(), it returned short version of the IPv6 address
             address = '{}::/{}'.format(
             	# We don't needs to compress the string from "0000:0000:0000:0000:0000:0abc:0007:0def" format
@@ -49,5 +49,5 @@ if __name__ == '__main__':
                 str(ipaddress.IPv6Address(random.getrandbits(128))),
                 random.randint(prefix_from, prefix_to)
             )
-            
+
         print(address)
