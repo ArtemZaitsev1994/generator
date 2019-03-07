@@ -43,11 +43,14 @@ if __name__ == '__main__':
         else:
             # We generate an integer with 128 random bits and create address from them.
             # When we call str(), it returned short version of the IPv6 address
-            address = '{}::/{}'.format(
+            address = '{}/{}'.format(
             	# We don't needs to compress the string from "0000:0000:0000:0000:0000:0abc:0007:0def" format
             	# to "::abc:7:def" because it's implemented in module.
                 str(ipaddress.IPv6Address(random.getrandbits(128))),
                 random.randint(prefix_from, prefix_to)
             )
+            
+        # Use "network" method for obtaining the prefix
+        address = ipaddress.ip_interface(address).network
 
         print(address)
